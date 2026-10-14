@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: var(--background);
@@ -98,6 +102,8 @@ a {
   border: 1px solid var(--primary);
   border-radius: 4px;
   font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .button-primary {
@@ -105,8 +111,21 @@ a {
   color: var(--dark);
 }
 
+.button-primary:hover,
+.button-primary:focus-visible {
+  background: #bf8d32;
+  border-color: #bf8d32;
+  color: #fff;
+}
+
 .button-secondary {
   color: #fff;
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  background: var(--primary);
+  color: var(--dark);
 }
 
 .hero {
@@ -211,6 +230,12 @@ a {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .product-card img {
@@ -291,4 +316,51 @@ a {
 .footer-box p {
   margin: 6px 0 0;
   color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .nav-bar,
+  .hero-grid,
+  .about-grid,
+  .footer-box,
+  .product-grid {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-bar > .brand,
+  .main-nav,
+  .nav-bar > .button,
+  .hero-copy,
+  .hero-card,
+  .about-grid > div,
+  .about-grid > p,
+  .footer-box > div,
+  .footer-box > a,
+  .product-card {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .product-grid {
+    margin: 0;
+  }
+
+  .nav-bar > .button,
+  .footer-box > a {
+    text-align: left;
+  }
+
+  .hero-copy {
+    padding-right: 0;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-grid > div {
+    padding-right: 0;
+  }
 }
